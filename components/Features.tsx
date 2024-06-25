@@ -1,3 +1,4 @@
+import { FEATURES } from "@/constants";
 import Image from "next/image";
 
 const Features = () => {
@@ -18,14 +19,41 @@ const Features = () => {
         </div>
         <div className="z-20 flex w-full flex-col lg:w-[60%]">
           <div className="relative">
-            
-            <Image src="/camp.svg" width={50} height={50} alt="camp" className="absolute left-[-5px] top-[-28px] w-10 lg:w-[50px]"/>
+            <Image
+              src="/camp.svg"
+              width={50}
+              height={50}
+              alt="camp"
+              className="absolute left-[-5px] top-[-28px] w-10 lg:w-[50px]"
+            />
           </div>
           <h2 className="bold-40 lg:bold-64">Our Features</h2>
         </div>
+        <ul>
+          {FEATURES.map((feature) => (
+            <FeatureItem
+              key={feature.title}
+              title={feature.title}
+              icon={feature.icon}
+              variant={feature.variant}
+              description= {feature.description}
+            />
+          ))}
+        </ul>
       </div>
     </section>
   );
+};
+
+type FeatureItemProps = {
+  title:string;
+  icon: string;
+  variant: string;
+  description:string;
+}
+
+const FeatureItem = ({title,icon,variant,description}:FeatureItemProps) => {
+  return <li className="flex w-full flex-1 flex-col items-start"></li>;
 };
 
 export default Features;
