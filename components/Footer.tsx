@@ -11,8 +11,14 @@ const Footer = () => {
             <Image src="hilink-logo.svg" alt="logo" width={74} height={29} />
           </Link>
           <div className="flex flex-wrap gap-10 sm:justify-between md:flex-1">
-            {FOOTER_LINKS.map(columns => (
-              <FooterColumn title={columns.title} > </FooterColumn>
+            {FOOTER_LINKS.map((columns) => (
+              <FooterColumn title={columns.title}>
+                <ul className="regular-14 flex flex-col gap-4 text-gray-30">
+                  {columns.links.map(link => (
+                    <Link href="/" key={link} >{link}</Link>
+                  ))}
+                </ul>
+              </FooterColumn>
             ))}
           </div>
         </div>
@@ -22,17 +28,17 @@ const Footer = () => {
 };
 
 type FooterColumnProps = {
-  title:string;
+  title: string;
   children: React.ReactNode;
-}
+};
 
-const FooterColumn = ({title, children}:FooterColumnProps) => {
+const FooterColumn = ({ title, children }: FooterColumnProps) => {
   return (
     <div>
       <h4>{title}</h4>
       {children}
     </div>
-  )
-}
+  );
+};
 
 export default Footer;
