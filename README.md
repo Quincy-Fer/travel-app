@@ -10,4 +10,8 @@ This website was made following a tutorial by JS mastery on youtube in order to 
 
 ## How to view
 
-To view the website 
+Clone the repository --> Git clone and cd into directory
+Install dependecies --> npm install
+Run the build --> npm run build
+See preview of final build --> npm run start
+Visit  http://localhost:3000 in your browser
